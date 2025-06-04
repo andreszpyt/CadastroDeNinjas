@@ -1,7 +1,16 @@
 package com.java10x.CadastroDeNinjas.Missions;
 
+import com.java10x.CadastroDeNinjas.Ninjas.NinjaModel;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+import java.util.List;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "tb_missions")
 public class MissionModel {
@@ -11,36 +20,6 @@ public class MissionModel {
     private String name;
     private String dificulty;
 
-    public MissionModel() {
-    }
-
-    public MissionModel(long id, String name, String dificulty) {
-        this.id = id;
-        this.name = name;
-        this.dificulty = dificulty;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDificulty() {
-        return dificulty;
-    }
-
-    public void setDificulty(String dificulty) {
-        this.dificulty = dificulty;
-    }
+    @OneToMany(mappedBy = "ninja")
+    private List<NinjaModel> ninja;
 }
