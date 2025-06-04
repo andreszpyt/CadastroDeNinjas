@@ -20,6 +20,6 @@ public class MissionModel {
     private String name;
     private String dificulty;
 
-    @OneToMany(mappedBy = "ninja")
+    @OneToMany(mappedBy = "missao")
     private List<NinjaModel> ninja;
 }
